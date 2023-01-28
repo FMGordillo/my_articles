@@ -1,0 +1,197 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Facu's website">
+  <main>
+    <h1>Hi, stalker!</h1>
+    <p>My name is Facundo Martin Gordillo, and welcome to my... portfolio.</p>
+    <p>
+      Yeah I know, you don't have to tell me, it is awful... But hey, better
+      that nothing, right?
+    </p>
+    <section>
+      <h1>My favorite projects</h1>
+      <details>
+        <summary>A simple Redux project</summary>
+        <p>A user listing which shows all articles created by that user</p>
+        <p>
+          Keywords: <code>nextjs</code>, <code>redux-toolkit</code>, <code
+            >redux-thunk</code
+          >, <code>typescript</code>
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/FMGordillo/curso-de-redux"
+              target="_blank"
+              rel="noreferrer noopener">See source code</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://redux.facundogordillo.com/"
+              target="_blank"
+              rel="noreferrer noopener">Try it out</a
+            >
+          </li>
+        </ul>
+      </details>
+      <details>
+        <summary>FavForMe (<em>discontinued</em>)</summary>
+        <p>
+          I've worked in a startup called FavForMe, and this is the landing
+          page. It had more features, but I disabled them
+        </p>
+        <p>
+          FavForMe was a non-profit social crowdfunding company focused on
+          helping to those who help. It had authentication, payments and
+          databases
+        </p>
+        <p>
+          Keywords: <code>nextjs</code>, <code>typescript</code>, <code
+            >prisma</code
+          >, <code>mercadopago</code>, <code>sentry</code>
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/FMGordillo/favforme-frontend"
+              target="_blank"
+              rel="noreferrer noopener">See source code</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://favforme.com/"
+              target="_blank"
+              rel="noreferrer noopener">Try it out</a
+            >
+          </li>
+        </ul>
+      </details>
+      <details>
+        <summary
+          >IBM Public Internet Form User Registration (<em>unofficial</em
+          >)</summary
+        >
+        <p>
+          Basic form and <code title="Comma Separated Values">CSV</code> generator
+          for an internal IBM tool, allowing them to access the internet
+        </p>
+        <p>
+          Keywords: <code>react</code>, <code>material-ui</code>, <code
+            >formik</code
+          >
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/FMGordillo/ibminternet-form-user-registration"
+              target="_blank"
+              rel="noreferrer noopener">See source code</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://ibm-form-user-registration.vercel.app/"
+              target="_blank"
+              rel="noreferrer noopener">Try it out</a
+            >
+          </li>
+        </ul>
+      </details>
+    </section>
+    <section class="faq">
+      <h1>FAQ</h1>
+      <details>
+        <summary>Who are you?</summary>
+        <p>I've just told you in the top of th-... just kidding</p>
+        <p>
+          Facundo Martin Gordillo, Software Engineer since 2019, born and raised
+          in Buenos Aires, Argentina. Currently located in Barcelona, Spain
+        </p>
+        <p>
+          I list to J-pop, <a
+            href="https://open.spotify.com/playlist/37i9dQZF1DX5g856aiKiDS"
+            target="_blank"
+            rel="noreferrer noopener">Dalkom Cafe vibes</a
+          >, a lot of <a
+            href="https://jojimusic.com/"
+            target="_blank"
+            rel="noreferrer noopener">Joji</a
+          > stuff, but everything else it's just random stuff. I love to cut my own
+          hair, even if I suck at it
+        </p>
+        <p>
+          Oh, and if you've haven't noticed, I really love to use emojis to
+          emphasizes an idea
+        </p>
+        <p>
+          In a near future I'd love to have my own studio to play piano, guitar
+          and <em>try</em> to sing
+        </p>
+      </details>
+      <details>
+        <summary>Why this website has no... well, colors or styling?</summary>
+        <p>
+          TBH, I've been delaying this porfolio for like several years, and I
+          have to start somewhere.
+        </p>
+        <p>
+          Something that I want to do though, <mark
+            >show a small animation of a project</mark
+          >
+        </p>
+        <p>
+          In a near future I will improve it to show my CSS skills, but don't
+          hold your breath
+        </p>
+      </details>
+      <details>
+        <summary>Where can I find you?</summary>
+        <p>Okey, if you insist...</p>
+        <p>
+          You can reach me out via <a
+            href="mailto:me@facundogordillo.com"
+            target="_blank"
+            rel="noreferrer noopener">email</a
+          > or <a
+            href="https://www.linkedin.com/in/fmgordillo/"
+            target="_blank"
+            rel="noreferrer noopener">Linkedin</a
+          >
+        </p>
+      </details>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    display: flex;
+    flex-direction: column;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+  details {
+    border: 1px solid #000;
+    padding: 8px 16px;
+  }
+  details > summary {
+    user-select: none;
+  }
+  details > summary:hover {
+    cursor: pointer;
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .project__gif {
+    width: 100%;
+  }
+</style>
