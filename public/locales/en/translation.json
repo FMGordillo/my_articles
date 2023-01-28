@@ -1,0 +1,19 @@
+{
+  "homepage": {
+    "head": {
+      "title": "Facu's website"
+    },
+    "title": "Hi, stalker!",
+    "description-1": "Mi nombre es Facundo Martin Gordillo, y te doy la bienvenida a mi... portafolio...",
+    "description-2": "Si, ya se, no me digas, es un poco feo... Pero bueno, es mejor que nada, ¿no?",
+    "projects": {
+      "title": "Mis proyectos favoritos",
+      "reduxProject": {
+        "title": "A simple Redux project"
+      },
+      "favforme-project": {},
+      "ibm-project": {}
+    },
+    "faq": {}
+  }
+}
