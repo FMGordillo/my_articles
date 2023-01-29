@@ -23,6 +23,11 @@
         "description": "Basic form and <0>CSV</0> generator for an internal IBM tool, allowing them to access the internet inside IBM"
       }
     },
-    "faq": {}
+    "faq": {
+      "whoAreYou": {
+        "title": "Who are you?",
+        "description": "<0>Who are you?<0><1>Facundo Martin Gordillo, Software Engineer since 2019, born and raised in Buenos Aires, Argentina. Currently located in Barcelona, Spain</1><2>I list to J-pop, <3>Dalkom Cafe vibes</3>, a lot of <4>Joji</4> stuff, but everything else it's just random stuff. I love to cut my own hair, even if I suck at it</2><5>Oh, and if you've haven't noticed, I really love to use emojis to emphasizes an idea</5><6>In a near future I'd love to have my own studio to play piano, guitar and <7>try</7> to sing</6>"
+      }
+    }
   }
 }
