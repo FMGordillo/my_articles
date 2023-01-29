@@ -4,15 +4,24 @@
       "title": "La página de Facu"
     },
     "title": "¡Hola, extraño/a!",
-    "description-1": "Mi nombre es Facundo Martin Gordillo, y te doy la bienvenida a mi... portafolio...",
-    "description-2": "Si, ya se, no me digas, es un poco feo... Pero bueno, es mejor que nada, ¿no?",
+    "description": "<0>Mi nombre es Facundo Martin Gordillo, y te doy la bienvenida a mi... portafolio... Si, ya se, no me digas, es un poco feo... Pero bueno, es mejor que nada, ¿no?</0>",
+    "keywords": "Palabras clave",
+    "sourceCode": "Ver código fuente",
+    "tryItOut": "Ver demo",
     "projects": {
       "title": "Mis proyectos favoritos",
       "reduxProject": {
-        "title": "Un projecto simple de Redux"
+        "title": "Un projecto simple de Redux",
+        "description": "Página web que lista todos los usuarios con artículos creados"
       },
-      "favforme-project": {},
-      "ibm-project": {}
+      "favformeProject": {
+        "title": "FavForMe (<0>descontinuo</0>)",
+        "description": "<0>Trabajé en una startup llamada FavForMe, y esta es su landing page</0><1>FavForMe era una organización de crowdfunding social enfocada en ayudar a quienes ayudan</1>"
+      },
+      "ibmProject": {
+        "title": "Registro de Usuarios para Internet Pública en IBM (<0>no oficial</0>)",
+        "description": "Formulario básico y generador de <0>CSV</0>s para una herramienta internal de IBM, que permite otorgar acceso a internet dentro del edificio IBM"
+      }
     },
     "faq": {}
   }

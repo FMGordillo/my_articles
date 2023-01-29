@@ -4,15 +4,24 @@
       "title": "Facu's website"
     },
     "title": "Hi, stalker!",
-    "description-1": "Mi nombre es Facundo Martin Gordillo, y te doy la bienvenida a mi... portafolio...",
-    "description-2": "Si, ya se, no me digas, es un poco feo... Pero bueno, es mejor que nada, ¿no?",
+    "description": "<0>My name is Facundo Martin Gordillo, and welcome to my... portfolio. Yeah I know, you don't have to tell me, it is awful... But hey better than nothing, right?</0>",
+    "keywords": "Keywords",
+    "sourceCode": "See source code",
+    "tryItOut": "Try it out",
     "projects": {
-      "title": "Mis proyectos favoritos",
+      "title": "My favorite projects",
       "reduxProject": {
-        "title": "A simple Redux project"
+        "title": "A simple Redux project",
+        "description": "A user listing web which shows all articles created by that user"
       },
-      "favforme-project": {},
-      "ibm-project": {}
+      "favformeProject": {
+        "title": "FavForMe (<0>discontinued</0>)",
+        "description": "<0>I've worked in a startup called FavForMe, and this is the landing page</0><1>FavForMe was a non-profit social crowdfunding organization focused on helping to those who help</1>"
+      },
+      "ibmProject": {
+        "title": "IBM Public Internet Form User Registration (<0>unofficial</0>)",
+        "description": "Basic form and <0>CSV</0> generator for an internal IBM tool, allowing them to access the internet inside IBM"
+      }
     },
     "faq": {}
   }
