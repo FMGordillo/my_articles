@@ -4,15 +4,19 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "prepare": "husky install",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "i18n-gen": "npx astro-i18next generate",
+    "gen": "astro-i18next generate",
     "astro": "astro"
   },
   "dependencies": {
     "astro": "^2.0.2",
     "astro-i18next": "1.0.0-beta.17"
+  },
+  "devDependencies": {
+    "husky": "8.0.3"
   }
 }
