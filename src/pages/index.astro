@@ -175,7 +175,8 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 auto;
   }
   details {
-    border: 1px solid #000;
+    border-width: 1px;
+    border-style: solid;
     padding: 8px 16px;
   }
   details > summary {
@@ -194,4 +195,17 @@ import Layout from "../layouts/Layout.astro";
   .project__gif {
     width: 100%;
   }
+
+  @media (prefers-color-scheme: dark) {
+    details {
+      border-color: #fff;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+    details {
+      border-color: #000;
+    }
+  }
+
 </style>

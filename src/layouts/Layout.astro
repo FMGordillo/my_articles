@@ -20,9 +20,22 @@ const { title } = Astro.props;
   </body>
 </html>
 <style is:global>
-  :root {
-  }
+
   html {
     font-family: system-ui, sans-serif;
+  }
+
+  @media (prefers-color-scheme: light) {
+    :root, body {
+      color: #0c0c0c;
+      background: #fafafa;
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root, body {
+      color: #fafafa;
+      background: #0c0c0c;
+    }
   }
 </style>
