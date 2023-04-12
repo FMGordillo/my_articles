@@ -1,17 +1,5 @@
 ---
-import Blockquote from '../components/Blockquote.astro';
-import Link from '../components/Link.astro';
-
-const { title } = Astro.props;
-
-export interface Props {
-  title: string;
-}
-
-export const components = {
-  a: Link,
-  blockquote: Blockquote,
-};
+const { title } = Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -23,13 +11,87 @@ export const components = {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="max-w-screen-sm m-auto flex flex-col gap-4 dark:text-white dark:bg-black">
+  <body
+    class="max-w-screen-sm m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
+  >
     <nav class="flex">
       <ul class="flex mx-auto space-x-4">
         <li class="after:content-['|'] after:ml-4"><a href="/">Home</a></li>
-        <li><a href="/articles/why-i-changed-to-vim">Why I changed to Vim</a></li>
+        <li class="after:content-['|'] after:ml-4">
+          <a href="/articles/why-i-changed-to-vim">Why I changed to Vim</a>
+        </li>
+        <li><button id="search-button">Search</button></li>
       </ul>
     </nav>
     <slot />
   </body>
+  <div id="search-bar" class="hidden inset-x-0 inset-y-0 z-1">
+    <input
+      class="text-black py-2 px-4 rounded"
+      placeholder="Search an article"
+    />
+  </div>
+  <script>
+    const searchBarEl = document.querySelector("#search-bar");
+    const searchButtonEl = document.querySelector("#search-button");
+
+    const getIsInputHidden = () => searchBarEl?.classList.contains("hidden");
+
+    const handleInputHide = () => {
+      if (searchBarEl) {
+        searchBarEl.classList.add("hidden");
+        searchBarEl.classList.remove("fixed");
+        (searchBarEl.children[0] as HTMLInputElement).value = "";
+      }
+    };
+
+    const handleInputShow = () => {
+      if (searchBarEl) {
+        searchBarEl.classList.add("fixed");
+        searchBarEl.classList.remove("hidden");
+        (searchBarEl.children[0] as HTMLInputElement).focus();
+      }
+    };
+
+    window.addEventListener("click", function handleClick(e) {
+      if (!getIsInputHidden() && e.target === searchBarEl) {
+        e.preventDefault();
+        handleInputHide();
+        return;
+      }
+    });
+
+    window.addEventListener("keydown", function handleOpenSearch(e) {
+      if (searchBarEl) {
+        if (e.key === "Escape") {
+          e.preventDefault();
+          handleInputHide();
+        }
+
+        if (e.ctrlKey && e.key === "k") {
+          e.preventDefault();
+          if (getIsInputHidden()) {
+            handleInputShow();
+          } else {
+            handleInputHide();
+          }
+        }
+      }
+    });
+
+    searchButtonEl?.addEventListener(
+      "click",
+      function handleSearchButtonClick(e) {
+        e.preventDefault();
+        handleInputShow();
+      }
+    );
+
+    searchBarEl?.addEventListener("keydown", function handleSearch(e) {
+      if ((e as KeyboardEvent).key === "Enter") {
+        e.preventDefault();
+        console.log("TODO: Handle search");
+      }
+    });
+  </script>
 </html>

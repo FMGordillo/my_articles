@@ -1,25 +1,20 @@
-import Title from '../../components/Title.astro';
-import Subtitle from '../../components/Subtitle.astro';
-import Link from '../../components/Link.astro';
-import Layout from '../../layouts/Layout.astro';
-import Blockquote from '../../components/Blockquote.astro';
+---
+title: Why I changed to Vim
+slug: why-i-changed-to-vim
+---
 
-export const components = {
-  a: Link,
-  h1: Title,
-  h2: Subtitle,
-  blockquote: Blockquote,
-};
+import mainComponents from '../../utils.ts';
+export const components = mainComponents;
 
-<Layout>
-
-# Why I changed to Vim
+# {frontmatter.title}
 
 > TLDR: I had performance issues using VSCode with Node.js and Docker, and found the alternative of Vim. It was pretty easy to use after a few weeks, and using IDE-ish like [LunarVim](https://www.lunarvim.org/) and [kickstart.vim](https://github.com/nvim-lua/kickstart.nvim) helped me out a lot with setups
 
 ## The current status
 
-My employer delivered to my house the necessary equipment to start working right away. It was a [Dell Latitude 5420](https://www.dell.com/us/dfb/p/latitude-5420-laptop/pd), which is not a bad laptop at all, but take in consideration that I'm working on a big company with its own VPN and security measures. It's like having [Kaspersky](https://www.kaspersky.es/) on your computer scanning each `npm install` that you make, each `cargo run` that you execute, and each `docker build` that you do (even local builds!). On top of that, I was using Windows 10 as a programming laptop
+My employer delivered to my house the necessary equipment to start working right away. It was a [Dell Latitude 5420](https://www.dell.com/us/dfb/p/latitude-5420-laptop/pd), which is not a bad laptop at all, but take in consideration that I'm working on a big company with its own VPN and security measures.
+
+It's like having [Kaspersky](https://www.kaspersky.es/) on your computer scanning each `npm install` that you make, each `cargo run` that you execute, and each `docker build` that you do (even local builds!). On top of that, I was using Windows 10 as a programming laptop
 
 I started working right away, as they needed, but I couldn't do my best in those conditions. One of my options was to reduce all the unnecessary shenanigans, like Chrome extensions, VSCode extensions, local databases by using remote ones, using [Powershell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.3) as my main command line
 
@@ -31,12 +26,13 @@ There's [so](https://www.youtube.com/watch?v=X6AR2RMB5tE&list=PLm323Lc7iSW_wuxqm
 
 ## Features that I use a lot
 
-- [X] Intellisense (by using IDE-ish you can have [LSP](https://microsoft.github.io/language-server-protocol/) pre-installed)
-- [X] [Spell check](https://www.linux.com/training-tutorials/using-spell-checking-vim/)
-- [X] File explorer (`Space + E` in LunarVim for example)
 - [X] Change between tabs (It needed a custom keymap for it)
 - [ ] Close the current tab (I still don't know how to do it)
+- [X] File explorer (`Space + E` in LunarVim for example)
 - [ ] Git tools (diffs, untracked files, etc)
+- [X] Intellisense (by using IDE-ish you can have [LSP](https://microsoft.github.io/language-server-protocol/) pre-installed)
+- [X] Sorting (select lines, and execute `:sort`)
+- [X] [Spell check](https://www.linux.com/training-tutorials/using-spell-checking-vim/)
 - [ ] [Wallaby.js](https://wallabyjs.com/) and [Quokka.js](https://quokkajs.com/) (not developed yet)
 
 As you can see, some are battery-included, some need a bit of tinkering around, and others are just deal-breakers.
@@ -46,5 +42,3 @@ As you can see, some are battery-included, some need a bit of tinkering around, 
 It's been around one month that I started my Vim journey, and I'm far from comfortable using it, but each time that some snippet comes to my mind, each moment that I type and accomplish what I need, and each second that I figured _Hey, I don't have shoulder pain anymore_ (because I don't take my hands from my keyboard) I feel like the struggle is worthwhile.
 
 Like Abba said once, [Take a chance on Vim](https://www.youtube.com/watch?v=-crgQGdpZR0)
-
-</Layout>
