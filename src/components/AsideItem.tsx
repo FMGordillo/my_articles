@@ -1,7 +1,5 @@
 import { createSignal, onMount } from "solid-js";
 
-
-
 function AsideItem(props) {
   const [isStreaming, setIsStreaming] = createSignal(false);
 
@@ -13,8 +11,7 @@ function AsideItem(props) {
 		const isStreamingURL = `https://api.twitch.tv/helix/streams?user_login=${username}`;
 
 		const clientId = "wjvrvuqjhehg89tj2zb0vrbysf55w0";
-		//const clientSecret = import.meta.env.VITE_TWITCH_CLIENT_SECRET;
-		const clientSecret = "gc78mvm8njceypfybx61boofbvjcg7";
+		const clientSecret = import.meta.env.PUBLIC_TWITCH_CLIENT_SECRET;
 
 		const tokenRequest = new Request(getTokenURL, {
 		  method: "POST",
