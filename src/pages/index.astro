@@ -1,10 +1,26 @@
 ---
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+
+const articles = await getCollection("articles");
 ---
 
 <Layout title="Facu's website">
-  <main >
+  <main class="flex flex-col gap-2">
     <h1 class="text-6xl">My notes</h1>
     <h2 class="text-4xl">By Facundo Martin Gordillo</h2>
+    <br />
+    <ul class="grid gap-4 grid-cols-1">
+      {
+        articles.map((article) => (
+          <a href={`/articles/${article.slug}`}>
+            <li class="rounded px-4 py-6 bg-gray-600 hover:bg-gray-700 transition">
+              <code>{">"}</code>
+              {article.data.title}
+            </li>
+          </a>
+        ))
+      }
+    </ul>
   </main>
 </Layout>
