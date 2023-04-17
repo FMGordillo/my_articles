@@ -1,21 +1,39 @@
 ---
-import { getCollection } from "astro:content";
+// import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
 
-export async function getStaticPaths() {
-  const articleEntries = await getCollection("articles");
+// export async function getStaticPaths() {
+//   const articleEntries = await getCollection("articles");
 
-  return articleEntries.map((article) => ({
-    params: { slug: article.slug },
-    props: { entry: article },
-  }));
+//   return articleEntries.map((article) => ({
+//     params: { slug: article.slug },
+//     props: { entry: article },
+//   }));
+// }
+
+// const { entry } = Astro.props;
+// const { Content } = await entry.render();
+
+
+import { getEntryBySlug } from "astro:content";
+// 1. Get the slug from the incoming server request
+const { slug } = Astro.params;
+if (slug === undefined) {
+  throw new Error("Slug is required");
 }
-
-const { entry } = Astro.props;
+// 2. Query for the entry directly using the request slug
+const entry = await getEntryBySlug("articles", slug);
+// 3. Redirect if the entry does not exist
+if (entry === undefined) {
+  return Astro.redirect("/404");
+}
+// 4. (Optional) Render the entry to HTML in the template
 const { Content } = await entry.render();
+
 ---
 
 <ArticleLayout title={entry.data.title}>
   <Content />
+  <br />
   <hr />
 </ArticleLayout>
