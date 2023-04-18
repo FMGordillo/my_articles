@@ -10,7 +10,7 @@ const { title } = Astro.props.frontmatter || Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Blogs made by FMGordillo"
+    <meta name="description" content="Blogs made by FMGordillo" />
   </head>
   <body
     class="m-auto py-4 px-8 flex flex-col h-screen gap-4 dark:text-white dark:bg-black"
@@ -20,16 +20,39 @@ const { title } = Astro.props.frontmatter || Astro.props;
         <li class="after:content-['|'] after:ml-4"><a href="/">Home</a></li>
         <li><button id="search-button">Search</button></li>
       </ul>
+      <label class="hover:cursor-pointer">
+        <input
+          class="hover:cursor-pointer"
+          type="checkbox"
+          role="switch"
+          id="change-theme-btn"
+        />
+      </label>
     </nav>
     <slot />
   </body>
-  <div id="search-bar" class="hidden inset-x-0 inset-y-0 z-1">
+  <div
+    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
+  >
+  </div>
+  <div
+    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-tr from-amber-200 dark:from-amber-900"
+  >
+  </div>
+  <div
+    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-b from-purple-300 dark:from-purple-800"
+  >
+  </div>
+  <div id="search-bar" class="h-screen isolate hidden inset-x-0 inset-y-0 z-1">
     <input
       class="text-black py-2 px-4 rounded"
       placeholder="Search an article"
     />
   </div>
+
   <script>
+    const htmlEl = document.querySelector("html");
+    const themeBtn = document.querySelector("#change-theme-btn");
     const searchBarEl = document.querySelector("#search-bar");
     const searchButtonEl = document.querySelector("#search-button");
 
@@ -45,7 +68,7 @@ const { title } = Astro.props.frontmatter || Astro.props;
 
     const handleInputShow = () => {
       if (searchBarEl) {
-        searchBarEl.classList.add("fixed");
+        searchBarEl.classList.add("absolute");
         searchBarEl.classList.remove("hidden");
         (searchBarEl.children[0] as HTMLInputElement).focus();
       }
@@ -89,6 +112,12 @@ const { title } = Astro.props.frontmatter || Astro.props;
       if ((e as KeyboardEvent).key === "Enter") {
         e.preventDefault();
         console.log("TODO: Handle search");
+      }
+    });
+
+    themeBtn?.addEventListener("click", function handleThemeChange() {
+      if (htmlEl) {
+        htmlEl.className = htmlEl.className === "dark" ? "light" : "dark";
       }
     });
   </script>
