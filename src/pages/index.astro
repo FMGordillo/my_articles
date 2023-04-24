@@ -6,15 +6,16 @@ const articles = await getCollection("articles");
 ---
 
 <Layout title="Facu's website">
-  <main class="flex flex-col gap-2">
+  <main class="flex flex-col gap-8">
     <h1 class="text-6xl">My notes</h1>
     <h2 class="text-4xl">By Facundo Martin Gordillo</h2>
-    <br />
-    <ul class="grid gap-4 grid-cols-1">
+    <ul
+      class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+    >
       {
         articles.map((article) => (
           <a href={`/articles/${article.slug}`}>
-            <li class="rounded px-4 py-6 bg-gray-600 hover:bg-gray-700 transition">
+            <li class="flex items-baseline gap-4 h-full rounded px-4 py-6 bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 transition">
               <code>{">"}</code>
               {article.data.title}
             </li>

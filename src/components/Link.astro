@@ -2,4 +2,10 @@
 const props = Astro.props;
 ---
 
-<a {...props} target="_blank" rel="noreferrer noopener" class="text-blue-300 hover:text-blue-400 border-white"><slot /></a>
+<a
+  {...props}
+  target="_blank"
+  rel="noreferrer noopener"
+  class="text-blue-600 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400 transition hover:underline"
+  ><slot /></a
+>

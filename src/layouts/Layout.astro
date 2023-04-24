@@ -32,15 +32,15 @@ const { title } = Astro.props.frontmatter || Astro.props;
     <slot />
   </body>
   <div
-    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
+    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
   >
   </div>
   <div
-    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-tr from-amber-200 dark:from-amber-900"
+    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tr from-amber-200 dark:from-amber-900"
   >
   </div>
   <div
-    class="-z-10 transition absolute inset-0 h-screen bg-gradient-to-b from-purple-300 dark:from-purple-800"
+    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-b from-purple-300 dark:from-purple-800"
   >
   </div>
   <div id="search-bar" class="h-screen isolate hidden inset-x-0 inset-y-0 z-1">
