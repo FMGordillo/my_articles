@@ -1,10 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import Link from "@/components/Link.astro";
 const { title } = Astro.props;
 ---
 
 <Layout title={title}>
-  <main class="text-base/7 max-w-prose mx-auto h-full">
+  <main class="text-base/7 max-w-prose mx-auto">
     <slot />
   </main>
+  <footer class="text-base/9 max-w-prose mx-auto">
+    <p class="text-center">Follow 4 follow?</p>
+    <div class="flex gap-4">
+      <Link href="https://linkedin.com/in/fmgordillo">Linkedin</Link>
+      <Link href="https://twitch.tv/laspark">Twitch</Link>
+    </div>
+    <br />
+  </footer>
 </Layout>

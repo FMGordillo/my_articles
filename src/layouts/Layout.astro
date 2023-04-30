@@ -20,7 +20,11 @@ const { title } = Astro.props.frontmatter || Astro.props;
         <li class="after:content-['|'] after:ml-4"><a href="/">Home</a></li>
         <li><button id="search-button">Search</button></li>
       </ul>
-      <label class="hover:cursor-pointer">
+      <label
+        title="WARNING: Very bright"
+        class="flex gap-4 hover:cursor-pointer"
+      >
+        <span class="select-none">Light mode</span>
         <input
           class="hover:cursor-pointer"
           type="checkbox"
