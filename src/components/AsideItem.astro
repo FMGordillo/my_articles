@@ -1,0 +1,10 @@
+
+---
+const props = Astro.props;
+
+
+const iconURL = await import(`../../public/icons/${props.icon}.svg`).then((res) => res.default);
+
+---
+
+<li class="w-8 h-8 hover:cursor-pointer"><img class="current-color-red" src={iconURL} /></li>

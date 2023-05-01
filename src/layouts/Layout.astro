@@ -1,4 +1,5 @@
 ---
+import AsideItem from '@/components/AsideItem.astro';
 const { title } = Astro.props.frontmatter || Astro.props;
 ---
 
@@ -33,7 +34,16 @@ const { title } = Astro.props.frontmatter || Astro.props;
         />
       </label>
     </nav>
-    <slot />
+
+    <aside class="fixed hidden inset-y-0 lg:block">
+      <ul class="flex h-full flex-col gap-8 justify-center">
+        <AsideItem icon="github" />
+        <AsideItem icon="twitch" />
+      </ul>
+    </aside>
+    <main class="max-w-prose mx-auto">
+      <slot />
+    </main>
   </body>
   <div
     class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
