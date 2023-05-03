@@ -1,0 +1,53 @@
+---
+title: Why I should know my tools
+slug: why-i-should-know-my-tools
+---
+
+import mainComponents from '../../utils.ts';
+export const components = mainComponents;
+
+# {frontmatter.title}
+
+> TLDR: Painters own and master their brushes, writers know and embrace their dictionaries, programmers... Own... bash scripts?
+
+## And why you should too
+
+As I've mentioned in the article [Why I want to stream](/articles/why-i-want-to-stream), one of my motivators is [ThePrimeagen](https://www.twitch.tv/theprimeagen) for one of these phrases: _Know your tools_
+
+I recently encountered [this tweet](https://twitter.com/midudev/status/1653702971652296706) about a npm package that could run `kill` command in your terminal regardless of your [`process.platform`](https://nodejs.org/api/process.html#processplatform) (you can see the package [here](https://www.npmjs.com/package/kill-port) and the magic is happening [here](https://github.com/tiaanduplessis/kill-port/blob/master/index.js))
+
+By no means I quoted [midu](https://twitter.com/midudev)'s tweet as the main offense, but rather the wide acceptance in the comments, and this is still happening, and it seems like a big problem ([see a reference video about this topic](https://www.youtube.com/watch?v=NmHUjxKpD90)
+
+## Ok genius, how do I appoach the same without remembering
+
+_Use your tools_. If you are using Windows, [learn how to create alias in Powershell](https://stackoverflow.com/questions/24914589/how-to-create-permanent-powershell-aliases), [if you are using Mac or Linux is the same thing](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
+
+Now I hear you saying _but what happens if I'm using another OS?_ then *do the same process in that OS*. Are you really switching constantly between different OS's in programming? If so, then you've installed twice Node.js, you've cloned your projects two times, you have VSCode or whatever that you're using in two different machines, and you still are looking for a way to simplify things?
+
+I have another solution: Create your own `dotfiles`
+
+## Say that again?
+
+As mentioned by [FreeCodeCamp](https://www.freecodecamp.org/news/dotfiles-what-is-a-dot-file-and-how-to-create-it-in-mac-and-linux/) (you don't have to read a lot, just the first sentence): _Dotfiles are important files that will play an integral role in your career as a software developer._ If that's not motivation enough, I don't know what else to say.
+
+If you have more than one machine, and you still insist in keeping both (or more), you can start [managing those dotfiles](https://www.anishathalye.com/2014/08/03/managing-your-dotfiles/) with things like [`dotbot`](https://github.com/anishathalye/dotbot)
+
+## I was asking nice, don't be rude
+
+I am sorry if this articles comes rough for some people, I don't mean anything bad to anyone, but we are programmers building stuff that eventually we will use. You don't know who you answer in StackOverflow, maybe it's a software engineer in an important health insurance, and you are a client of it complaining all day that the app works awful, when the question was "_how can I optimize a leftPad alghorithm_" and you've answered a link to "Let me Google that for you", or "[just do your own](https://twitter.com/search?q=leftpad&src=typed_query)"
+
+# How to proceed from here
+
+When people choose convenience over knowledge, everything goes. I want to learn my tools:
+- If someone else did this tool, is that a wrapper of different tools or convenientely created in my favorite language?
+- If it's not a wrapper, is it a composition of tools that I know, or I can learn?
+- If not, I can reuse it, it saves me time
+
+Applying this theory with [`morgan`](https://github.com/expressjs/morgan):
+- It has a lot of stuff that I don't need, I only want to log "[METHOD] - URL - REQUEST_IN_MS"
+- I know the tools, it's just plain Javascript
+- I won't reuse it
+
+I will build my own. It's simple. It's not a waste of time, it takes literally seconds to do it. If you still feel that it's a waste of time, [please refer to the video that I've shared previously](https://www.youtube.com/watch?v=NmHUjxKpD90)
+
+And if I don't know how to do it, I will learn. I want to learn. I want to know my tools right.
