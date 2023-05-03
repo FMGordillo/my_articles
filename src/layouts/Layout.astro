@@ -1,5 +1,5 @@
 ---
-import AsideItem from '@/components/AsideItem.astro';
+import AsideItem from '@/components/AsideItem.tsx';
 const { title } = Astro.props.frontmatter || Astro.props;
 ---
 
@@ -36,9 +36,9 @@ const { title } = Astro.props.frontmatter || Astro.props;
     <!-- </nav> -->
 
     <aside class="fixed hidden inset-y-0 lg:block">
-      <ul class="flex h-full flex-col gap-8 justify-center">
-        <AsideItem icon="github" />
-        <AsideItem icon="twitch" />
+      <ul class="flex h-full w-8 flex-col gap-8 justify-center">
+        <AsideItem client:only="solidjs" icon="github" />
+        <AsideItem client:only="solidjs" icon="twitch" />
       </ul>
     </aside>
     <main class="max-w-prose mx-auto">
