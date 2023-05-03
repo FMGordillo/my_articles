@@ -37,8 +37,7 @@ if(props.icon === 'twitch') {
   } catch {}
 }
 
-/* @vite-ignore */
-const iconURL = await import(`/icons/${props.icon}.svg`).then((res) => res.default);
+const iconURL = await import(`../../public/icons/${props.icon}.svg`).then((res) => res.default);
 
 ---
 
