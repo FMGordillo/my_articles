@@ -1,10 +1,10 @@
 ---
 const props = Astro.props;
+// Blockquote uses `p` in the <slot>, so we need to remove the margin bottom
 ---
-
 <blockquote
   {...props}
-  class="py-3 border-l-4 pl-4 bg-cyan-100 border-cyan-400 dark:bg-cyan-900 dark:border-cyan-700"
+  class="[&>p]:mb-0 py-3 border-l-4 pl-4 bg-cyan-100 border-cyan-400 dark:bg-cyan-900 dark:border-cyan-700"
 >
   <slot />
 </blockquote>

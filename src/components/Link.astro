@@ -6,7 +6,7 @@ const isOwnDomain = props.href.startsWith('/');
 
 <a
   {...props}
-  target="_blank"
+  target={isOwnDomain ? "_self" : "_blank"}
   rel="noreferrer noopener"
   class={`text-blue-600 hover:text-blue-700 dark:text-blue-300 dark:hover:text-blue-400 transition hover:underline ${!isOwnDomain && "after:content-['↗']"}`}
   ><slot /></a
