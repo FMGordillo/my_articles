@@ -5,6 +5,9 @@ const { title } = Astro.props;
 ---
 
 <Layout title={title}>
+  <nav>
+    <Link href="/">{"<-"} Home</Link>
+  </nav>
   <div class="text-base/7">
     <slot />
   </div>
