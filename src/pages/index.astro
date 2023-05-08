@@ -41,8 +41,8 @@ function formatDate(date) {
   </div>
   <script>
     const liEls = document.querySelectorAll("li");
-    liEls.forEach(el => el.addEventListener('click', (e) => {
-      const slug = e.srcElement.dataset.slug;
+    liEls.forEach(el => el.addEventListener('click', () => {
+      const slug = el.dataset.slug;
       window.location.href = `/articles/${slug}`
     }))
   </script>
