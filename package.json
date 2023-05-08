@@ -8,6 +8,7 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "test": "cypress run",
     "astro": "astro"
   },
   "dependencies": {
@@ -19,5 +20,8 @@
     "remark-toc": "^8.0.1",
     "solid-js": "^1.4.3",
     "tailwindcss": "^3.0.24"
+  },
+  "devDependencies": {
+    "cypress": "^12.11.0"
   }
 }
