@@ -1,10 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import Link from "@/components/Link.astro";
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
   <nav>
     <Link href="/">{"<-"} Home</Link>
   </nav>

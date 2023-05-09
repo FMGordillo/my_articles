@@ -1,19 +1,5 @@
 ---
-// import { getCollection } from "astro:content";
 import ArticleLayout from "@/layouts/ArticleLayout.astro";
-
-// export async function getStaticPaths() {
-//   const articleEntries = await getCollection("articles");
-
-//   return articleEntries.map((article) => ({
-//     params: { slug: article.slug },
-//     props: { entry: article },
-//   }));
-// }
-
-// const { entry } = Astro.props;
-// const { Content } = await entry.render();
-
 
 import { getEntryBySlug } from "astro:content";
 // 1. Get the slug from the incoming server request
@@ -32,7 +18,7 @@ const { Content } = await entry.render();
 
 ---
 
-<ArticleLayout title={entry.data.title}>
+<ArticleLayout title={entry.data.title} description={`Date published: ${entry.data.date}`}>
   <Content />
   <br />
   <hr />

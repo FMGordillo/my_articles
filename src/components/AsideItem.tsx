@@ -49,7 +49,7 @@ function AsideItem(props) {
     <li class="relative w-8 h-8 hover:cursor-pointer">
       <img
         class="w-8 h-8"
-        src={`../../public/icons/${props.icon}.svg`}
+        src={`/icons/${props.icon}.svg`}
       />
       {isStreaming && (
         <span class="absolute -right-1 -top-1 bg-red-400 rounded w-2 h-2"></span>

@@ -8,8 +8,6 @@ function formatDate(date) {
   const [day, month, year] = date.split("/");
   const newDate = new Date(year, month - 1, day);
 
-  console.log({ day, month, year, newDate });
-
   if (newDate.toString() === "Invalid Date") {
     return date;
   }

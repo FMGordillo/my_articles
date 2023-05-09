@@ -1,6 +1,6 @@
 ---
 import AsideItem from '@/components/AsideItem.tsx';
-const { title } = Astro.props.frontmatter || Astro.props;
+const { title, description } = Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -11,29 +11,11 @@ const { title } = Astro.props.frontmatter || Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="Blogs made by FMGordillo" />
+    <meta name="description" content={description || "Blogs made by FMGordillo"} />
   </head>
   <body
     class="m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
   >
-    <!-- <nav class="flex"> -->
-    <!--   <ul class="flex mx-auto space-x-4"> -->
-    <!--     <li class="after:content-['|'] after:ml-4"><a href="/">Home</a></li> -->
-    <!--     <li><button id="search-button">Search</button></li> -->
-    <!--   </ul> -->
-    <!--   <label -->
-    <!--     title="WARNING: Very bright" -->
-    <!--     class="flex gap-4 hover:cursor-pointer" -->
-    <!--   > -->
-    <!--     <span class="select-none">Light mode</span> -->
-    <!--     <input -->
-    <!--       class="hover:cursor-pointer" -->
-    <!--       type="checkbox" -->
-    <!--       role="switch" -->
-    <!--       id="change-theme-btn" -->
-    <!--     /> -->
-    <!--   </label> -->
-    <!-- </nav> -->
 
     <aside class="fixed hidden inset-y-0 lg:block">
       <ul class="flex h-full w-8 flex-col gap-8 justify-center">
@@ -41,10 +23,13 @@ const { title } = Astro.props.frontmatter || Astro.props;
         <AsideItem client:only="solidjs" icon="twitch" />
       </ul>
     </aside>
+
     <main class="max-w-prose mx-auto">
       <slot />
     </main>
+
   </body>
+
   <div
     class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
   >
