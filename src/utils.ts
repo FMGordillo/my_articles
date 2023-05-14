@@ -1,6 +1,7 @@
 import Blockquote from '@/components/Blockquote.astro';
 import Link from '@/components/Link.astro';
 import List from '@/components/List.astro';
+import ListItem from '@/components/ListItem.astro';
 import Paragraph from '@/components/Paragraph.astro';
 import Subtitle from '@/components/Subtitle.astro';
 import Title from '@/components/Title.astro';
@@ -10,6 +11,7 @@ export default {
   blockquote: Blockquote,
   h1: Title,
   h2: Subtitle,
-  li: List,
+  ul: List,
+  li: ListItem,
   p: Paragraph,
 }

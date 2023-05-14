@@ -56,13 +56,13 @@ function AsideItem(props) {
 
 
   return (
-    <li class="relative w-8 h-8 hover:cursor-pointer">
+    <li style={{ position: 'relative' }} class="w-8 h-8 hover:cursor-pointer">
       <img
         class="w-8 h-8"
         src={`/icons/${props.icon}.svg`}
       />
 		{isStreaming() &&
-        <span style={{ position: 'absolute', width: '0.75rem', height: '0.75rem', 'background-color': 'red', right: 0, 'border-radius': '8px' }}></span>
+        <span style={{ position: 'absolute', width: '0.50rem', height: '0.50rem', 'background-color': 'red', right: '-0.25rem', top: '-0.25rem', 'border-radius': '8px' }}></span>
 			}
     </li>
   );
