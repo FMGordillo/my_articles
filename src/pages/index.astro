@@ -38,7 +38,7 @@ const articles = baseArticles.sort((a, b) =>
     >
       {
         articles.map((article) => (
-            <li data-slug={article.slug} class="grid grid-flow-col grid-cols-[120px_8px_auto] gap-4 rounded px-4 py-6 bg-gradient-to-r from-cyan-300 to-cyan-400 hover:cursor-pointer hover:to-cyan-500 dark:from-cyan-700 dark:to-cyan-800 dark:hover:to-cyan-600 transition">
+            <li data-slug={article.slug} class="grid grid-flow-col grid-cols-[140px_8px_auto] gap-4 rounded px-4 py-6 bg-gradient-to-r from-cyan-300 to-cyan-400 hover:cursor-pointer hover:to-cyan-500 dark:from-purple-700 dark:to-cyan-800 dark:hover:to-cyan-600 transition">
               <span class="italic">{formatDate(article.data.date)}</span>
               <code>{"|"}</code>
               <span>{article.data.title}</span>
@@ -46,6 +46,7 @@ const articles = baseArticles.sort((a, b) =>
       ))}
     </ul>
   </div>
+
   <script>
     const liEls = document.querySelectorAll("li");
     liEls.forEach(el => el.addEventListener('click', () => {

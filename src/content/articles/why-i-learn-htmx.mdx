@@ -1,0 +1,54 @@
+---
+title: Why I learn HTMX
+slug: why-i-learn-htmx
+date: 26/08/2023
+---
+
+import mainComponents from '../../utils.ts';
+export const components = mainComponents;
+
+# {frontmatter.title}
+
+> TLDR: It's quick to use, lightweight, and it's the core of all the world wide web, the question is, why shouldn't I?
+
+## Let's get this out of the way, what is HTMX?
+
+Taken from [the official page](https://htmx.org):
+
+> htmx is small (~14k min.gz’d), dependency-free, extendable, IE11 compatible & has reduced code base sizes by 67% when compared with react
+
+As you can see, the main point that they highlight is *when compared with react*, so you can see what issues they are aiming to solve
+
+## So you want to learn it because you hate React?
+
+Aw hell naw, I just want to try new things:
+
+1. It goes back to the roots of my dev journey: Sending HTML from the server to the client, but now with HTMX adding reactivity
+
+2. I don't have to maintain Typescript, have fancy ESLint rules or something very complex. **Just focus on the data**
+
+3. It's easy to get started, and specially with Tailwind
+
+## How did you start?
+
+First, using the [htmx docs](https://htmx.org/docs/) of course. Then, when I felt confident about how it works, I tried to build a (soon) *plugin* for OBS that shows a video when certain events happen on your League of Legends's play (kills, assistants and deaths). You can see [the "final" project in my Github](https://github.com/FMGordillo/lol_event_handler_obs)
+
+Using [Pug.js](https://pugjs.org/) and [Fastify](https://fastify.dev/) I could achieve my main goal, until I find a bug: **Videos are still present on the DOM**
+
+When I add an element from the server to the client (with [`hx-swap`](https://htmx.org/attributes/hx-swap/)) I've found out that the content is being swapt correctly, but until it's swaped by the previous one, the past video is still present on the web page (and I want the video to be removed when it finishes). How can I achieve that feature with HTMX?
+
+**Quick answer: You can't**. But that's ok, because you can rely on Javascript
+
+## Whoa, what's the deal then with using HTMX? Doesn't that reduce the usage of Javascript?
+
+You are missing two points here. First, the main motivation of HTMX (as you can see in [their website](https://htmx.org/) is to "complete HTMX as a hypertext" avoiding the usage of unnecesary (and sometimes complex) tools like React, Vue, Svelte, etc.
+
+The second point is that HTMX is a script, dummy. You **are** using Javascript, only less than other frameworks.
+
+So, I added a function (4 lines) to remove the video played, and on the `<video>` tag I've added the event `onended=removeVideo(${videoId})` and that's it.
+
+## Ok... So... Are you going to work in all your projects with HTMX?
+
+Aw hell naw, the only reason that I'd use HTMX is for personal projects that I want to get up and running fast. I want to learn again PHP and Nginx to develop fun stuff without so many dependencies, and possible use HTMX there.
+
+What's awesome about this is that you can run HTMX anywhere (not like React) and you don't need an ecosistem of plugins or tools to enrich it, just plain HTML and CSS for presentation, and Javascript for behavior, as it should be.
