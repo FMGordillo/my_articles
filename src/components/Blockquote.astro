@@ -1,10 +1,12 @@
 ---
 const props = Astro.props;
 // Blockquote uses `p` in the <slot>, so we need to remove the margin bottom
+
+const content = await Astro.slots.render('default')
+const isTLDR = content.includes('TLDR');
+
 ---
-<blockquote
-  {...props}
-  class="[&>p]:mb-0 py-3 border-l-4 pl-4 bg-cyan-100 border-cyan-400 dark:bg-cyan-900 dark:border-cyan-700"
+<blockquote {...props} class={`[&>p]:mb-0 py-3 mb-1 border-l-4 pl-4  ${isTLDR ? "border-cyan-400 dark:border-cyan-700 bg-cyan-100 dark:bg-cyan-900" : "border-neutral-400 dark:border-neutral-500 bg-neutral-100 dark:bg-neutral-700"}`}
 >
   <slot />
 </blockquote>
