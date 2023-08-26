@@ -1,32 +1,37 @@
 ---
 import AsideItem from '@/components/AsideItem.tsx';
+import Link from '@/components/Link.astro';
 const { title, description } = Astro.props.frontmatter || Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="h-full dark">
   <head>
     <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description || "Blogs made by FMGordillo"} />
   </head>
   <body
-    class="m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
+    class="h-full m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
   >
 
     <aside class="fixed hidden inset-y-0 lg:block">
       <ul class="flex h-full w-8 flex-col gap-8 justify-center">
         <AsideItem client:only="solidjs" icon="github" />
         <AsideItem client:only="solidjs" icon="twitch" />
+        <AsideItem client:only="solidjs" icon="linkedin" />
       </ul>
     </aside>
 
-    <main class="max-w-prose mx-auto">
+    <main class="flex-1 max-w-prose mx-auto">
       <slot />
     </main>
+
+    <footer>
+      Icons by <Link href="https://ionic.io">Ionic.io</Link>
+    </footer>
 
   </body>
 
