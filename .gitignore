@@ -23,3 +23,5 @@ cypress/videos/
 cypress/screenshots/
 
 .direnv/
+
+.wakatime*

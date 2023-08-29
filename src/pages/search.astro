@@ -4,12 +4,9 @@ import { getCollection } from "astro:content";
 
 const allArticles = await getCollection("pages/articles");
 
-console.log({ allArticles})
-
 export { allArticles };
 ---
 
 <Layout>
   <h1>Hello</h1>
 </Layout>
-

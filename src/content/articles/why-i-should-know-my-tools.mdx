@@ -4,7 +4,7 @@ slug: why-i-should-know-my-tools
 date: 03/05/2023
 ---
 
-import mainComponents from '../../utils.ts';
+import mainComponents from "../../utils.ts";
 export const components = mainComponents;
 
 # {frontmatter.title}
@@ -23,7 +23,7 @@ By no means I quoted [midu](https://twitter.com/midudev)'s tweet as the main off
 
 _Use your tools_. If you are using Windows, [learn how to create alias in Powershell](https://stackoverflow.com/questions/24914589/how-to-create-permanent-powershell-aliases), if you are using Mac or Linux [is the same thing](https://askubuntu.com/questions/17536/how-do-i-create-a-permanent-bash-alias)
 
-Now I hear you saying "_but what happens if I'm using another OS?_" then *do the same process in that OS*. Are you really switching constantly between different OS's in programming? If so, then you've installed twice Node.js, you've cloned your projects two times, you have VSCode or whatever that you're using in two different machines, and you still are looking for a way to simplify things?
+Now I hear you saying "_but what happens if I'm using another OS?_" then _do the same process in that OS_. Are you really switching constantly between different OS's in programming? If so, then you've installed twice Node.js, you've cloned your projects two times, you have VSCode or whatever that you're using in two different machines, and you still are looking for a way to simplify things?
 
 I have another solution: Create your own `dotfiles` ([I've done my own](https://github.com/FMGordillo/dotfiles))
 
@@ -40,11 +40,13 @@ I am sorry if this articles comes rough for some people, I don't mean anything b
 # How to proceed from here
 
 When people choose convenience over knowledge, everything goes. I want to learn my tools:
+
 - If someone else did this tool, is that a wrapper of different tools or convenientely created in my favorite language?
 - If it's not a wrapper, is it a composition of tools that I know, or I can learn?
 - If not, I can reuse it, it saves me time
 
 Applying this theory with [`morgan`](https://github.com/expressjs/morgan):
+
 - It has a lot of stuff that I don't need, I only want to log "[METHOD] - URL - REQUEST_IN_MS"
 - I know the tools, it's just plain Javascript
 - I won't reuse it
