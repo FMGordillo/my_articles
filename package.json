@@ -10,6 +10,9 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "engine": {
+    "node": "18"
+  },
   "dependencies": {
     "@astrojs/mdx": "^0.18.3",
     "@astrojs/solid-js": "^2.1.1",
