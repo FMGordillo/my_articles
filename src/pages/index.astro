@@ -1,62 +1,24 @@
 ---
-import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
-
-const baseArticles = await getCollection("articles");
-
-function _getDate(date) {
-  const [day, month, year] = date.split("/");
-  return new Date(year, month - 1, day);
-}
-
-function formatDate(date) {
-  const newDate = _getDate(date);
-  if (newDate.toString() === "Invalid Date") {
-    return date;
-  }
-
-  return newDate.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
-const articles = baseArticles.sort(
-  (a, b) => _getDate(b.data.date) - _getDate(a.data.date)
-);
 ---
 
 <Layout title="Facu's website">
   <div class="flex flex-col gap-16">
-    <br />
-    <h1 class="text-4xl md:text-6xl">Facundo Martin Gordillo's notes</h1>
-    <ul class="grid gap-4 grid-cols-1">
-      {
-        articles.map((article) => (
-          <li
-            data-slug={article.slug}
-            class="grid grid-flow-col grid-cols-[140px_8px_auto] gap-4 rounded px-4 py-6 bg-gradient-to-r from-cyan-300 to-cyan-400 hover:cursor-pointer hover:to-cyan-500 dark:from-purple-700 dark:to-cyan-800 dark:hover:to-cyan-600 transition"
-          >
-            <span class="italic">{formatDate(article.data.date)}</span>
-            <code>{"|"}</code>
-            <span>{article.data.title}</span>
-          </li>
-        ))
-      }
-    </ul>
+    <h1 class="text-4xl md:text-6xl">Hi, I'm Facundo</h1>
+    <div class="flex items-center gap-8">
+      <a
+        href="/articles"
+        class="px-4 py-2 text-slate-950 rounded-md bg-slate-300 w-1/2 hover:cursor-pointer
+      text-center"
+        >See articles</a
+      >
+
+      <a
+        href="/articles"
+        class="px-4 py-2 text-slate-950 rounded-md bg-slate-300 w-1/2 hover:cursor-pointer
+      text-center"
+        >See treasure trove</a
+      >
+    </div>
   </div>
-  <script
-    async
-    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8454596958122266"
-    crossorigin="anonymous"></script>
-  <script>
-    const liEls = document.querySelectorAll("li");
-    liEls.forEach((el) =>
-      el.addEventListener("click", () => {
-        const slug = el.dataset.slug;
-        window.location.href = `/articles/${slug}`;
-      })
-    );
-  </script>
 </Layout>

@@ -4,10 +4,7 @@ import Link from "@/components/Link.astro";
 const { title, description } = Astro.props;
 ---
 
-<Layout title={title} description={description}>
-  <nav>
-    <Link href="/">{"<-"} Home</Link>
-  </nav>
+<Layout backUrl="/articles" title={title} description={description}>
   <div class="text-base/7">
     <slot />
   </div>

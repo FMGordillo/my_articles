@@ -1,22 +1,24 @@
 ---
-import AsideItem from '@/components/AsideItem.tsx';
-import Link from '@/components/Link.astro';
-const { title, description } = Astro.props.frontmatter || Astro.props;
+import AsideItem from "@/components/AsideItem.tsx";
+import Link from "@/components/Link.astro";
+const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="h-full dark">
   <head>
     <title>{title}</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="description" content={description || "Blogs made by FMGordillo"} />
+    <meta
+      name="description"
+      content={description || "Blogs made by FMGordillo"}
+    />
   </head>
   <body
     class="h-full m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
   >
-
     <aside class="fixed hidden inset-y-0 lg:block">
       <ul class="flex h-full w-8 flex-col gap-8 justify-center">
         <AsideItem client:only="solidjs" icon="github" />
@@ -25,14 +27,19 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
       </ul>
     </aside>
 
-    <main class="flex-1 max-w-prose mx-auto">
+    <main class="flex-1 max-w-prose mt-14 mx-auto">
+      <nav class="sticky top-0">
+        <Link href={backUrl ?? "/"}>
+          <span role="img" aria-hidden="true">⬅️</span>
+           Back
+        </Link>
+      </nav>
       <slot />
     </main>
 
     <footer>
       Icons by <Link href="https://ionic.io">Ionic.io</Link>
     </footer>
-
   </body>
 
   <div
@@ -59,6 +66,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
     const themeBtn = document.querySelector("#change-theme-btn");
     const searchBarEl = document.querySelector("#search-bar");
     const searchButtonEl = document.querySelector("#search-button");
+    const navEl = document.querySelector("nav");
 
     const getIsInputHidden = () => searchBarEl?.classList.contains("hidden");
 
@@ -109,7 +117,7 @@ const { title, description } = Astro.props.frontmatter || Astro.props;
       function handleSearchButtonClick(e) {
         e.preventDefault();
         handleInputShow();
-      }
+      },
     );
 
     searchBarEl?.addEventListener("keydown", function handleSearch(e) {
