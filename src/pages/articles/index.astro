@@ -1,15 +1,19 @@
 ---
 import { getCollection } from "astro:content";
+import Pagination from "../../components/Pagination.astro";
 import Layout from "../../layouts/Layout.astro";
+
+const ARTICLES_PER_PAGE = 5;
+const currentPage = +Astro.url.searchParams.get("page")! || 1;
 
 const baseArticles = await getCollection("articles");
 
-function _getDate(date) {
+function _getDate(date: string) {
   const [day, month, year] = date.split("/");
-  return new Date(year, month - 1, day);
+  return new Date(Number(year), Number(month) - 1, Number(day));
 }
 
-function formatDate(date) {
+function formatDate(date: string) {
   const newDate = _getDate(date);
   if (newDate.toString() === "Invalid Date") {
     return date;
@@ -22,13 +26,21 @@ function formatDate(date) {
   });
 }
 
-const articles = baseArticles.sort(
-  (a, b) => _getDate(b.data.date) - _getDate(a.data.date),
-);
+const totalPages = Math.ceil(baseArticles.length / ARTICLES_PER_PAGE);
+const articles = baseArticles
+  .sort(
+    (a, b) => _getDate(b.data.date).valueOf() - _getDate(a.data.date).valueOf(),
+  )
+  .slice(
+    (currentPage - 1) * ARTICLES_PER_PAGE,
+    currentPage * ARTICLES_PER_PAGE,
+  );
+
+console.log({ currentPage, totalPages });
 ---
 
 <Layout title="Facu's website">
-  <div class="flex flex-col gap-16">
+  <div class="flex flex-col gap-16 min-w-[480px]">
     <h1 class="text-4xl md:text-6xl">Articles</h1>
     <ul class="grid gap-4 grid-cols-1">
       {
@@ -44,6 +56,12 @@ const articles = baseArticles.sort(
         ))
       }
     </ul>
+    <Pagination
+      currentPage={currentPage}
+      disableNext={currentPage === totalPages}
+      disablePrevious={currentPage === 1}
+      totalPages={totalPages}
+    />
   </div>
   <script
     async

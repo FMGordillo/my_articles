@@ -1,0 +1,29 @@
+---
+import Button from "./Button.astro";
+const { currentPage, disablePrevious, disableNext } = Astro.props;
+
+interface Props {
+  currentPage: number;
+  totalPages: number;
+  disablePrevious: boolean;
+  disableNext: boolean;
+}
+---
+
+<div class="flex justify-between mt-10">
+  <Button
+    component="a"
+    disabled={disablePrevious}
+    href={"/articles?page=" + (currentPage - 1)}
+  >
+    Previous
+  </Button>
+
+  <Button
+    component="a"
+    href={"/articles?page=" + (currentPage + 1)}
+    disabled={disableNext}
+  >
+    Next
+  </Button>
+</div>

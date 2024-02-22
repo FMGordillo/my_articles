@@ -1,0 +1,39 @@
+---
+const { component, ...props } = Astro.props;
+
+interface ButtonProps extends astroHTML.JSX.ButtonHTMLAttributes {}
+
+interface AnchorProps extends astroHTML.JSX.AnchorHTMLAttributes {
+  disabled?: boolean;
+}
+
+type Props<T extends "button" | "a"> = {
+  component: T;
+} & (T extends "button" ? ButtonProps : AnchorProps);
+
+// Because anchors don't support disabled prop, we need to do this
+const commonClasses = "px-4 py-2 rounded-md w-1/2 text-center";
+const enabledClasses =
+  "bg-purple-700 text-white hover:bg-purple-900 hover:cursor-pointer";
+const disabledClasses = "bg-gray-600 hover:cursor-not-allowed";
+
+const classes = `${commonClasses} ${
+  props.disabled ? disabledClasses : enabledClasses
+}`;
+
+const link = props.disabled ? "#" : props.href;
+
+const customProps = { ...props, href: link, class: classes };
+---
+
+{
+  component === "button" ? (
+    <button {...customProps}>
+      <slot />
+    </button>
+  ) : (
+    <a {...customProps}>
+      <slot />
+    </a>
+  )
+}

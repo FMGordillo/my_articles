@@ -5,6 +5,9 @@ import Layout from "../layouts/Layout.astro";
 <Layout title="Facu's website">
   <div class="flex flex-col gap-16">
     <h1 class="text-4xl md:text-6xl">Hi, I'm Facundo</h1>
+
+    <p></p>
+
     <div class="flex items-center gap-8">
       <a
         href="/articles"
@@ -13,11 +16,21 @@ import Layout from "../layouts/Layout.astro";
         >Articles</a
       >
 
+      <a
+        href="/curriculum"
+        class="px-4 py-2 text-slate-950 rounded-md bg-slate-300 w-1/2 hover:cursor-pointer
+      text-center hover:bg-slate-100 hover:shadow-lg transition-all"
+        >Curriculum</a
+      >
+
       <button
         disabled
+        aria-disabled="true"
+        aria-label="Coming soon"
+        title="Coming soon"
         class="px-4 py-2 text-slate-350 rounded-md bg-slate-300 w-1/2 hover:cursor-pointer
       text-center disabled:bg-gray-600 hover:disabled:cursor-wait"
-        >Treasure trove (soon)</button
+        >Treasure trove</button
       >
     </div>
   </div>
