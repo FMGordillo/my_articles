@@ -35,9 +35,8 @@ function AsideItem(props) {
 
       const response = await fetch(isStreamingRequest)
         .then((d) => d.json())
-        .then((j) => j.data[0]);
+        .then((j) => j.data?.[0]);
 
-      console.log({ response });
       if (response) {
         console.log("ok");
         setIsStreaming(true);

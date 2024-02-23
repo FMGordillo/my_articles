@@ -9,7 +9,7 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
   <head>
     <title>{title}</title>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width" initial-scale="1" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta
       name="description"
@@ -28,8 +28,8 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
       </ul>
     </aside>
 
-    <main class="flex-1 max-w-prose mt-14 mx-auto">
-      <nav class="sticky top-0 py-4">
+    <main class="flex-1 max-w-prose mx-auto">
+      <nav class="-mx-8 left-0 rounded px-8 sticky top-0 py-4 transition-all">
         <Link href={backUrl ?? "/"}>
           <span role="img" aria-hidden="true">⬅️</span>
            Back
@@ -44,15 +44,15 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
   </body>
 
   <div
-    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
+    class="-z-10 transition fixed inset-0 min-h-screen bg-gradient-to-tl from-red-400 dark:from-rose-950"
   >
   </div>
   <div
-    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-tr from-amber-200 dark:from-amber-900"
+    class="-z-10 transition fixed inset-0 min-h-screen bg-gradient-to-tr from-amber-200 dark:from-amber-900"
   >
   </div>
   <div
-    class="-z-10 transition fixed inset-0 h-screen bg-gradient-to-b from-purple-300 dark:from-purple-800"
+    class="-z-10 transition fixed inset-0 min-h-screen bg-gradient-to-b from-purple-300 dark:from-purple-800"
   >
   </div>
   <div id="search-bar" class="h-screen isolate hidden inset-x-0 inset-y-0 z-1">
@@ -67,7 +67,23 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
     const themeBtn = document.querySelector("#change-theme-btn");
     const searchBarEl = document.querySelector("#search-bar");
     const searchButtonEl = document.querySelector("#search-button");
-    // const navEl = document.querySelector("nav");
+    const navEl = document.querySelector("nav");
+
+    const navElClass = "bg-slate-900/80";
+
+    function stickyNav() {
+      if (navEl) {
+        if (window.scrollY >= navEl.offsetTop) {
+          navEl.classList.add(navElClass);
+        } else {
+          navEl.classList.remove(navElClass);
+        }
+      }
+    }
+
+    window.onscroll = function () {
+      stickyNav();
+    };
 
     const getIsInputHidden = () => searchBarEl?.classList.contains("hidden");
 
