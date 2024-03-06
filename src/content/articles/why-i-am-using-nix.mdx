@@ -1,0 +1,80 @@
+---
+title: Why I am using Nix
+slug: why-i-am-using-nix
+date: 06/03/2024
+---
+
+import mainComponents from "../../utils.ts";
+export const components = mainComponents;
+
+# {frontmatter.title}
+
+> TLDR: Break stuff, run a few commands and have everything as before it's a
+peace of mind immesurable to me
+
+## What is Nix?
+
+Taken from the [official webpage](https://nixos.org/), _Nix is a tool that takes
+a unique approach to package management and system configuration_, which means
+what it means: Reproducible environments.
+
+## Story time
+
+With the hype of AI, there's been a lot of new tools to try it out, and most of
+them going off the cloud (aka running locally), most of the in Python.
+
+Following the hype (or trying not to feel behind of stuff) I've started trying
+packages, which have lots of dependencies. *Global* dependencies.
+
+What is the problem with that? Not much at first, but if a package has a
+sensible dependency between them, it could break packages between them.
+
+For instance, let's say AIProject_A has the dependencies:
+
+- `package_a: ^0.5`
+- `package_b: ~1.0`
+- `package_c: 2.3.2`
+
+I've tried the package, it didn't work out for me, so I remove the project, but
+I forgot to remove the global packages
+
+The next project is AIProject_B and has the dependencies:
+
+- `package_c: 2.1.2`
+- `package_h: ~5.0`
+- `package_z: 0.2.1`
+
+Imagine `package_c` is a popular package that these projects use a lot (like
+[openai](https://pypi.org/project/openai/)). You see the conflict there?
+
+## Hold it right there, pyenv helps in this case
+
+Pyenv is the solution to this, but how do you install Pyenv? Depending on the
+Python version installed. How do you get Python? Using `apt`, in which you need
+to specify it. And if I need another version? Depends on the OS. What about
+`pip`? That's another thing.
+
+And this is *just* Python, imagine other projects with other languages
+
+Docker could also be the solution, but we depend on the developer of the project
+creating that `Dockerfile`, and most of them don't have it
+
+## So... What is the problem?
+
+To be really honest, I don't know but I can't bother to know each gotcha of each
+project that I explore
+
+Nix to the rescue!
+
+## Is that all that Nix offers?
+
+Absolutely not! The benefits that I've found so far:
+
+- If I change something and break it, I can rollback safely
+- If I change OS and want to go back, I will have it ready
+- If I want to feel in control, I use Nix
+
+## Should I use Nix?
+
+I don't think so, maybe if you find the same issues that I've mentioned, or
+something similar.
