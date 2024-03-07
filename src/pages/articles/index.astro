@@ -40,9 +40,9 @@ console.log({ currentPage, totalPages });
 ---
 
 <Layout title="Facu's website">
-  <div class="flex flex-col gap-16 min-w-[480px]">
+  <div class="flex flex-col justify-between gap-16 min-h-[640px]">
     <h1 class="text-4xl md:text-6xl">Articles</h1>
-    <ul class="grid gap-4 grid-cols-1">
+    <ul class="flex-1 grid gap-4 grid-cols-1 content-start">
       {
         articles.map((article) => (
           <li

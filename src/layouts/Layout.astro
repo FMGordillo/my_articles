@@ -17,9 +17,7 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
     />
   </head>
 
-  <body
-    class="text-base mx-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
-  >
+  <body class="text-base mx-auto py-4 px-8 dark:text-white dark:bg-black">
     <aside class="fixed hidden inset-y-0 lg:block">
       <ul class="flex h-full w-8 flex-col gap-8 justify-center">
         <AsideItem client:only="solidjs" icon="github" />
@@ -37,7 +35,7 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
            Back
         </Link>
 
-        <span>{title ?? "Facu's website"}</span>
+        <span class="text-ellipsis">{title ?? "Facu's website"}</span>
       </nav>
       <div id="content">
         <slot />
