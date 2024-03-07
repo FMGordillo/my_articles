@@ -18,7 +18,7 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
   </head>
 
   <body
-    class="h-full m-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
+    class="text-base mx-auto py-4 px-8 flex flex-col gap-4 dark:text-white dark:bg-black"
   >
     <aside class="fixed hidden inset-y-0 lg:block">
       <ul class="flex h-full w-8 flex-col gap-8 justify-center">
@@ -29,13 +29,19 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
     </aside>
 
     <main class="flex-1 max-w-prose mx-auto">
-      <nav class="-mx-8 left-0 rounded px-8 sticky top-0 py-4 transition-all">
+      <nav
+        class="flex justify-between -mx-8 left-0 rounded px-8 sticky top-0 py-4 transition-all"
+      >
         <Link href={backUrl ?? "/"}>
           <span role="img" aria-hidden="true">⬅️</span>
            Back
         </Link>
+
+        <span>{title ?? "Facu's website"}</span>
       </nav>
-      <slot />
+      <div id="content">
+        <slot />
+      </div>
     </main>
 
     <footer>
@@ -67,16 +73,22 @@ const { title, description, backUrl } = Astro.props.frontmatter || Astro.props;
     const themeBtn = document.querySelector("#change-theme-btn");
     const searchBarEl = document.querySelector("#search-bar");
     const searchButtonEl = document.querySelector("#search-button");
+    const contentEl = document.querySelector("#content");
     const navEl = document.querySelector("nav");
 
-    const navElClass = "bg-slate-900/80";
+    const navElClasses = ["bg-slate-900/80", "mix-blend-normal"];
 
     function stickyNav() {
-      if (navEl) {
-        if (window.scrollY >= navEl.offsetTop) {
-          navEl.classList.add(navElClass);
+      if (contentEl && navEl) {
+        console.log(
+          window.scrollY,
+          contentEl.offsetTop,
+          contentEl.offsetHeight,
+        );
+        if (window.scrollY >= contentEl.offsetTop - 8) {
+          navElClasses.forEach((style) => navEl.classList.add(style));
         } else {
-          navEl.classList.remove(navElClass);
+          navElClasses.forEach((style) => navEl.classList.remove(style));
         }
       }
     }
